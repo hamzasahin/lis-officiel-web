@@ -1,13 +1,12 @@
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-
-db = SQLAlchemy()
+from backend.main import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
-    name = db.Column(db.String(100))
+    first_name = db.Column(db.String(50))
+    last_name = db.Column(db.String(50))
     role = db.Column(db.String(20), default='customer')
     verified = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)

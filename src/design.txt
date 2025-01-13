@@ -1,0 +1,83 @@
+Lis Officiel Jewelry Store Design Document
+
+General Style and Tone:
+
+Important: This will be MVP there is no DB data coming from at this point. Please cradt some mock content and data for showcase
+
+The design conveys a modern, minimalist, and luxurious aesthetic with a focus on high-end jewelry. The tone is elegant and sophisticated, achieved through a clean layout, ample white space, refined typography, and high-quality imagery. The interface feels premium yet approachable, aligning with a target audience interested in high-value goods.
+
+Layout:
+	1.	Page Structure:
+	•	The page is divided into sections, with a strong visual hierarchy.
+	•	The layout uses two columns for the content: a larger section for prominent visuals and product names, and a smaller section for descriptive details or supplementary products.
+	•	Generous padding and spacing between elements emphasize clarity and allow each product to stand out.
+	2.	Header:
+	•	The header features a minimalist design with navigation options aligned horizontally on the top right (“Shop,” “About,” and “Cart”).
+	•	A thin and subtle font style is used for the navigation links, exuding modern elegance.
+	•	The logo, “Virtue Vignettes,” is styled with a sleek serif font and is centrally or left-aligned at the top of the page.
+
+Typography:
+	1.	Headings:
+	•	The title of the collection, “Modern Marvels”, is displayed in a bold serif font, emphasizing luxury and timelessness.
+	•	“Marvels” is italicized for added refinement and to draw attention to the collection’s name.
+	•	A subtitle under the heading uses a smaller sans-serif font, offering a contrast and balancing readability with modern appeal. It describes the collection in an aspirational tone.
+	2.	Product Titles:
+	•	Product names such as “Aurora Luxe Diamond Hoops” or “Golden Embrace Hoops” use bold serif fonts, with certain words (e.g., “Diamond,” “Embrace”) italicized to highlight key descriptors.
+	3.	Prices:
+	•	Prices are displayed in a clean sans-serif font, slightly smaller than the product titles, maintaining a minimalist and modern aesthetic.
+
+Images:
+	1.	Product Photography:
+	•	High-resolution, editorial-style images dominate the design, each placed in distinct frames (e.g., circular or rectangular).
+	•	Images are shot in soft lighting with neutral tones to create an inviting yet luxurious feel.
+	•	Shadows, textures (like books or stones), and props complement the jewelry without distracting from it.
+	2.	Framing:
+	•	Circular frames are used for some images, adding a modern and artistic touch to the layout.
+	•	Rectangular frames emphasize minimalism and focus on clean lines, particularly for items like the “Golden Embrace Hoops.”
+
+Colors:
+	1.	Primary Color Palette:
+	•	The design primarily uses a white background, which accentuates the elegance of the jewelry and creates a sense of openness.
+	•	Fonts are predominantly black or charcoal gray, ensuring readability while maintaining a sophisticated tone.
+	2.	Accents:
+	•	Jewelry images showcase gold, diamond, and gemstone tones like vibrant orange (Carnelian Solitaire) and metallic gold (Golden Embrace Hoops).
+
+Features:
+	1.	Product Descriptions:
+	•	Each product has a small description emphasizing its quality and timeless appeal.
+	•	Descriptions are concise but use evocative language to convey luxury, e.g., “These are your go-to for sophistication.”
+	2.	Interactive Elements:
+	•	Buttons (e.g., “Shop,” “Cart”) are likely subtly styled, with no visible call-to-action buttons on this static layout, reinforcing a clean, distraction-free aesthetic.
+
+Additional Notes:
+	•	The use of negative space is strategic, allowing each product to feel important and uncluttered.
+	•	The blend of serif and sans-serif typography creates a balance between classic and contemporary aesthetics.
+	•	The overall composition emphasizes symmetry and alignment, ensuring a visually pleasing layout.
+
+    	1.	Product Detail Page:
+	•	The product name, “Aurora Luxe Diamond Hoops,” is displayed prominently in a bold serif font, with the word “Diamond” italicized to emphasize the luxurious material.
+	•	A short product description highlights the features in an aspirational tone, e.g., “18k gold hoops graced with a trail of sparkling diamonds. A fusion of timeless elegance and modern flair, they’re the perfect complement to every occasion.”
+	2.	Price and Specifications:
+	•	The price, ”$1,249.00,” is listed directly below in a smaller sans-serif font for clarity.
+	•	Customization options (e.g., width in millimeters, quantity selection for “Pair” or “Single”) are displayed using clean, button-like input fields.
+	3.	Add to Cart:
+	•	A clear “Add to Cart” button at the bottom uses simple styling and a “+” icon, maintaining the minimalist theme.
+	•	On the right, the product image is prominently displayed, showcasing the hoops on an open book under soft natural light. Shadows and textures enhance the visual appeal.
+	4.	Pagination:
+	•	Small, minimalist dots at the bottom of the image indicate additional product photos or carousel functionality.
+
+    Header and Navigation:
+	•	Similar to the previous pages, the header includes the “VirtueVignettes” logo and simple navigation links (“Shop,” “About,” “Cart”).
+	2.	Section Introduction:
+	•	The heading, “Jewelry is our Passion and Craft,” combines serif fonts with italics and bold styles, conveying elegance and dedication.
+	•	Supporting text outlines the brand’s philosophy, e.g., “Established in 2012, we’ve dedicated ourselves to marrying the rich heritage of traditional jewelry making with the fresh inspirations of contemporary design.”
+	•	The text emphasizes storytelling, tradition, and modernity, aligning with a luxury audience.
+	3.	Suggestions Section:
+	•	The subheading, “See our Suggestions,” is styled similarly to the main heading, with a mix of bold and italicized serif fonts.
+	•	Four product suggestions are showcased below, each within rounded rectangular image frames. Each product includes:
+	•	A high-quality photo with soft, natural lighting and neutral or warm tones.
+	•	The product name (e.g., “Golden Halo Hoops,” “Aqua Charm Droplet Necklace”) styled in serif fonts with italicized descriptors.
+	•	The price displayed clearly below in a sans-serif font.
+	4.	Product Styling:
+	•	Each product image features props or textured backgrounds (e.g., fabric, marble, pink plates) that complement the jewelry’s luxurious appeal.
+	•	The variety of backdrops creates visual interest while maintaining a cohesive, premium feel.

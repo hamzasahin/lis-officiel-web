@@ -1,13 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import './PromoSection.css';
 
-const PromoSection = () => {
+const PromoSection = ({ title, subtitle, description, image }) => {
   return (
     <section className="promo-section">
-      <div className="promo-card">
-        <h2>Summer Sale</h2>
-        <p>Get 25% off your purchase with code SUMMER25</p>
-        <Link to="/products" className="btn-secondary">Shop Now</Link>
+      <div className="promo-content">
+        <h2 className="promo-title">{title}</h2>
+        <h3 className="promo-subtitle">{subtitle}</h3>
+        <p className="promo-description">{description}</p>
+        <button className="promo-cta">Explore Collection</button>
+      </div>
+      <div className="promo-image">
+        <img src={image} alt={title} />
       </div>
     </section>
   );

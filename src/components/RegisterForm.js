@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const RegisterForm = ({ handleRegister }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -19,7 +19,7 @@ const RegisterForm = ({ handleRegister }) => {
 
     handleRegister(user);
 
-    history.push('/user-account');
+    navigate('/user-account');
   };
 
   return (

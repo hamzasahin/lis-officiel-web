@@ -1,58 +1,56 @@
 import React from 'react';
-import ProductCard from './ProductCard';
+import { Link } from 'react-router-dom';
+import './FeaturedProducts.css';
 
 const FeaturedProducts = () => {
-  const products = [
+  const featuredProducts = [
     {
       id: 1,
-      name: 'Aurora Luxe Diamond Hoops',
-      image: 'https://via.placeholder.com/400x400',
-      price: 1249.00,
-      rating: 4.8,
-      numReviews: 42,
-      description: '18k gold hoops graced with a trail of sparkling diamonds',
-      materials: ['18k Gold', 'Diamonds'],
-      collection: 'Modern Marvels'
+      name: 'Diamond Eternity Ring',
+      description: 'Classic elegance meets modern design',
+      price: '$1,299',
+      image: '/images/products/ring-1.jpg'
     },
     {
       id: 2,
-      name: 'Golden Embrace Hoops',
-      image: 'https://via.placeholder.com/400x400',
-      price: 899.00,
-      rating: 4.7,
-      numReviews: 35,
-      description: 'Timeless elegance in a modern silhouette',
-      materials: ['24k Gold Plated'],
-      collection: 'Golden Classics'
+      name: 'Pearl Drop Earrings',
+      description: 'Timeless beauty for any occasion',
+      price: '$899',
+      image: '/images/products/earrings-1.jpg'
     },
     {
       id: 3,
-      name: 'Carnelian Solitaire Pendant',
-      image: 'https://via.placeholder.com/400x400',
-      price: 549.00,
-      rating: 4.9,
-      numReviews: 28,
-      description: 'Vibrant carnelian stone set in delicate gold',
-      materials: ['18k Gold', 'Carnelian'],
-      collection: 'Color Stories'
+      name: 'Gold Chain Necklace',
+      description: 'Delicate craftsmanship in 18k gold',
+      price: '$1,499',
+      image: '/images/products/necklace-1.jpg'
     }
   ];
 
   return (
     <section className="featured-products">
       <div className="section-header">
-        <h2 className="section-title">Modern Marvels Collection</h2>
-        <p className="section-subtitle">
-          Discover our curated selection of timeless pieces
+        <h2 className="section-title">
+          <span className="title-main">Featured</span>
+          <span className="title-accent">Collection</span>
+        </h2>
+        <p className="section-description">
+          Discover our most sought-after pieces, each one a testament to our dedication to exceptional jewelry making
         </p>
       </div>
-      <div className="product-grid">
-        {products.map(product => (
-          <ProductCard 
-            key={product.id} 
-            product={product}
-            showCollection={true}
-          />
+
+      <div className="products-grid">
+        {featuredProducts.map(product => (
+          <Link to={`/products/${product.id}`} key={product.id} className="product-card">
+            <div className="product-image">
+              <img src={product.image} alt={product.name} />
+            </div>
+            <div className="product-info">
+              <h3 className="product-name">{product.name}</h3>
+              <p className="product-description">{product.description}</p>
+              <span className="product-price">{product.price}</span>
+            </div>
+          </Link>
         ))}
       </div>
     </section>

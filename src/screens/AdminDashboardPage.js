@@ -3,7 +3,7 @@ import UserAccountDetails from '../components/UserAccountDetails';
 import UserOrderHistory from '../components/UserOrderHistory';
 import ProductCard from '../components/ProductCard';
 import CategoryFilter from '../components/CategoryFilter';
-import { getAllUsers, getAllOrders, getAllProducts } from '../utils/apiHelper';
+import { getAllUsers, getAllOrders, getProducts } from '../utils/apiHelper';
 
 const AdminDashboardPage = () => {
   const [users, setUsers] = React.useState([]);
@@ -13,7 +13,7 @@ const AdminDashboardPage = () => {
   React.useEffect(() => {
     getAllUsers().then((data) => setUsers(data));
     getAllOrders().then((data) => setOrders(data));
-    getAllProducts().then((data) => setProducts(data));
+    getProducts().then((data) => setProducts(data));
   }, []);
 
   return (

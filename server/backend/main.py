@@ -12,6 +12,7 @@ from flask_talisman import Talisman
 from flask_migrate import Migrate
 from dotenv import load_dotenv
 import logging
+import urllib.parse
 
 # Load environment variables
 load_dotenv()
@@ -40,8 +41,22 @@ limiter = Limiter(
 
 # Database configuration
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key-here')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI', 'sqlite:///app.db')
+# Parse and encode special characters in password
+db_uri = os.getenv('DATABASE_URI')
+if db_uri:
+    parsed = urllib.parse.urlparse(db_uri)
+    if parsed.password:
+        # Encode special characters in password
+        encoded_password = urllib.parse.quote(parsed.password)
+        # Reconstruct the URL with encoded password
+        db_uri = db_uri.replace(parsed.password, encoded_password)
+app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+    'pool_size': 5,
+    'pool_timeout': 30,
+    'pool_recycle': 1800,
+}
 
 # Initialize extensions
 db = SQLAlchemy(app)

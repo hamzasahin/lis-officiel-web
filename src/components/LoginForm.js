@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const LoginForm = ({ handleLogin }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,7 +17,7 @@ const LoginForm = ({ handleLogin }) => {
 
     handleLogin(user);
 
-    history.push('/user-account');
+    navigate('/user-account');
   };
 
   return (

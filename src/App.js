@@ -1,50 +1,30 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Navbar from './components/Navbar';
 import HomePage from './screens/HomePage';
-import ProductListingPage from './screens/ProductListingPage';
-import ProductDetailPage from './screens/ProductDetailPage';
+import ProductsPage from './screens/ProductsPage';
 import CartPage from './screens/CartPage';
-import CheckoutPage from './screens/CheckoutPage';
-import OrderConfirmationPage from './screens/OrderConfirmationPage';
-import UserAccountPage from './screens/UserAccountPage';
-import WishlistPage from './screens/WishlistPage';
-import ContactUsPage from './screens/ContactUsPage';
-import FAQPage from './screens/FAQPage';
-import LoginRegisterPage from './screens/LoginRegisterPage';
-import AdminDashboardPage from './screens/AdminDashboardPage';
-import ProtectedRoute from './components/ProtectedRoute';
-import ErrorBoundary from './components/ErrorBoundary';
+import LoginPage from './screens/LoginPage';
+import RegisterPage from './screens/RegisterPage';
+import Footer from './components/Footer';
+import './App.css';
 
 function App() {
   return (
     <Router>
-      <Header />
-      <ErrorBoundary>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/products" element={<ProductListingPage />} />
-          <Route path="/products/:id" element={<ProductDetailPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
-          <Route path="/account" element={<UserAccountPage />} />
-          <Route path="/wishlist" element={<WishlistPage />} />
-          <Route path="/contact-us" element={<ContactUsPage />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route path="/login-register" element={<LoginRegisterPage />} />
-          <Route 
-            path="/admin" 
-            element={
-              <ProtectedRoute>
-                <AdminDashboardPage />
-              </ProtectedRoute>
-            } 
-          />
-        </Routes>
-      </ErrorBoundary>
-      <Footer />
+      <div className="app">
+        <Navbar />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }

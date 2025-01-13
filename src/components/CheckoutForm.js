@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutForm = ({ cartItems, total, handlePlaceOrder }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -21,7 +21,7 @@ const CheckoutForm = ({ cartItems, total, handlePlaceOrder }) => {
 
     handlePlaceOrder(order);
 
-    history.push('/order-confirmation');
+    navigate('/order-confirmation');
   };
 
   return (

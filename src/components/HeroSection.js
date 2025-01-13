@@ -1,16 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import './HeroSection.css';
 
 const HeroSection = () => {
   return (
-    <section className="hero">
-      <div className="hero-text">
-        <h1>Welcome to Lis Officiel</h1>
-        <p>Shop our collection of high-quality, affordable jewelry inspired by French design.</p>
-        <Link to="/products" className="btn-primary">Shop Now</Link>
+    <section className="hero-section">
+      <div className="hero-content">
+        <span className="collection-label">COLLECTION</span>
+        <h1 className="hero-title">
+          <span className="title-main">Modern</span>
+          <span className="title-accent">Marvels</span>
+        </h1>
+        <p className="hero-subtitle">
+          Our classic collection features pieces that have stood the test of time. 
+          From elegant pearls to stunning solitaires, these are your go-to for sophistication.
+        </p>
       </div>
     </section>
   );
-};
+}
 
 export default HeroSection;

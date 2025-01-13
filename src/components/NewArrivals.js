@@ -1,43 +1,55 @@
 import React from 'react';
-import ProductCard from './ProductCard';
+import { Link } from 'react-router-dom';
+import './NewArrivals.css';
 
 const NewArrivals = () => {
-  const products = [
+  const newProducts = [
     {
-      id: 4,
-      name: 'Pearl Drop Earrings',
-      image: 'https://via.placeholder.com/300x300',
-      price: 39.99,
-      rating: 4.6,
-      numReviews: 8,
+      id: 1,
+      name: 'Sapphire Dreams Ring',
+      price: '$2,499',
+      image: '/images/products/sapphire-ring.jpg'
     },
     {
-      id: 5,
-      name: 'Crystal & Silver Ring',
-      image: 'https://via.placeholder.com/300x300',
-      price: 79.99,
-      rating: 4.9,
-      numReviews: 12,
+      id: 2,
+      name: 'Diamond Tennis Bracelet',
+      price: '$3,999',
+      image: '/images/products/tennis-bracelet.jpg'
     },
     {
-      id: 6,
-      name: 'Gold Plated Chain Bracelet',
-      image: 'https://via.placeholder.com/300x300',
-      price: 59.99,
-      rating: 4.7,
-      numReviews: 6
+      id: 3,
+      name: 'Pearl Cluster Earrings',
+      price: '$1,299',
+      image: '/images/products/pearl-earrings.jpg'
     }
   ];
 
   return (
-    <div className="new-arrivals">
-      <h2>New Arrivals</h2>
-      <div className="product-grid">
-        {products.map(product => (
-          <ProductCard key={product.id} product={product} />
+    <section className="new-arrivals">
+      <div className="section-header">
+        <h2 className="section-title">
+          <span className="title-main">New</span>
+          <span className="title-accent">Arrivals</span>
+        </h2>
+        <p className="section-description">
+          Be the first to discover our latest additions
+        </p>
+      </div>
+
+      <div className="products-grid">
+        {newProducts.map(product => (
+          <Link to={`/products/${product.id}`} key={product.id} className="product-card">
+            <div className="product-image">
+              <img src={product.image} alt={product.name} />
+            </div>
+            <div className="product-info">
+              <h3 className="product-name">{product.name}</h3>
+              <span className="product-price">{product.price}</span>
+            </div>
+          </Link>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

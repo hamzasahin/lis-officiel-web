@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import './RegisterPage.css';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
+  const { signUp } = useAuth();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -11,6 +13,8 @@ const RegisterPage = () => {
     password: '',
     confirmPassword: ''
   });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -21,21 +25,32 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      // Validate passwords match
-      if (formData.password !== formData.confirmPassword) {
-        alert('Passwords do not match');
-        return;
-      }
+    
+    if (formData.password !== formData.confirmPassword) {
+      return setError('Passwords do not match');
+    }
 
-      // TODO: Implement actual registration API call here
-      console.log('Registration submitted:', formData);
+    try {
+      setError('');
+      setLoading(true);
       
-      // Simulate successful registration
-      // After successful registration, navigate to the login page
-      navigate('/login');
+      const { error: signUpError } = await signUp(
+        formData.email,
+        formData.password,
+        {
+          firstName: formData.firstName,
+          lastName: formData.lastName
+        }
+      );
+
+      if (signUpError) throw signUpError;
+
+      // After successful registration, navigate to the dashboard
+      navigate('/dashboard');
     } catch (error) {
-      console.error('Registration failed:', error);
+      setError(error.message || 'Failed to create account');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -44,6 +59,12 @@ const RegisterPage = () => {
       <div className="auth-container">
         <h1 className="auth-title">Create Account</h1>
         <p className="auth-subtitle">Join our community of jewelry enthusiasts</p>
+        
+        {error && (
+          <div className="auth-error">
+            {error}
+          </div>
+        )}
         
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="form-row">
@@ -56,6 +77,7 @@ const RegisterPage = () => {
                 value={formData.firstName}
                 onChange={handleChange}
                 required
+                disabled={loading}
               />
             </div>
             
@@ -68,10 +90,11 @@ const RegisterPage = () => {
                 value={formData.lastName}
                 onChange={handleChange}
                 required
+                disabled={loading}
               />
             </div>
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
@@ -81,6 +104,7 @@ const RegisterPage = () => {
               value={formData.email}
               onChange={handleChange}
               required
+              disabled={loading}
             />
           </div>
           
@@ -93,6 +117,8 @@ const RegisterPage = () => {
               value={formData.password}
               onChange={handleChange}
               required
+              disabled={loading}
+              minLength={6}
             />
           </div>
           
@@ -105,10 +131,18 @@ const RegisterPage = () => {
               value={formData.confirmPassword}
               onChange={handleChange}
               required
+              disabled={loading}
+              minLength={6}
             />
           </div>
           
-          <button type="submit" className="auth-button">Create Account</button>
+          <button 
+            type="submit" 
+            className="auth-button"
+            disabled={loading}
+          >
+            {loading ? 'Creating Account...' : 'Create Account'}
+          </button>
         </form>
         
         <p className="auth-redirect">

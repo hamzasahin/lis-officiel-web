@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import './LoginPage.css';
+import './LoginPage.css'; // Reusing login page styles
 
-const LoginPage = () => {
+const UpdatePasswordPage = () => {
   const navigate = useNavigate();
-  const { signIn } = useAuth();
+  const { updatePassword } = useAuth();
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    password: '',
+    confirmPassword: ''
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -22,13 +22,18 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
+      return setError('Passwords do not match');
+    }
+
     try {
       setError('');
       setLoading(true);
-      await signIn(formData.email, formData.password);
-      navigate('/dashboard');
+      await updatePassword(formData.password);
+      navigate('/login');
     } catch (error) {
-      setError(error.message || 'Failed to sign in');
+      setError(error.message || 'Failed to update password');
     } finally {
       setLoading(false);
     }
@@ -37,8 +42,8 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <div className="auth-container">
-        <h1 className="auth-title">Welcome Back</h1>
-        <p className="auth-subtitle">Sign in to your account</p>
+        <h1 className="auth-title">Update Password</h1>
+        <p className="auth-subtitle">Enter your new password</p>
         
         {error && (
           <div className="auth-error">
@@ -48,20 +53,7 @@ const LoginPage = () => {
         
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              disabled={loading}
-            />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">New Password</label>
             <input
               type="password"
               id="password"
@@ -70,6 +62,21 @@ const LoginPage = () => {
               onChange={handleChange}
               required
               disabled={loading}
+              minLength={6}
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="confirmPassword">Confirm New Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+              disabled={loading}
+              minLength={6}
             />
           </div>
           
@@ -78,21 +85,12 @@ const LoginPage = () => {
             className="auth-button"
             disabled={loading}
           >
-            {loading ? 'Signing in...' : 'Sign In'}
+            {loading ? 'Updating...' : 'Update Password'}
           </button>
         </form>
-        
-        <div className="auth-links">
-          <Link to="/forgot-password" className="auth-link">
-            Forgot Password?
-          </Link>
-          <p className="auth-redirect">
-            Don't have an account? <Link to="/register">Sign up</Link>
-          </p>
-        </div>
       </div>
     </div>
   );
 };
 
-export default LoginPage; 
+export default UpdatePasswordPage; 

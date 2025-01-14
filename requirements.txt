@@ -16,6 +16,7 @@ flask-swagger-ui==4.11.1
 flask-talisman==1.1.0
 gotrue==0.2.0
 greenlet==3.1.1
+gunicorn==21.2.0
 h11==0.14.0
 httpcore==0.12.3
 httpx==0.16.1

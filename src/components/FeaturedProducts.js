@@ -9,21 +9,21 @@ const FeaturedProducts = () => {
       name: 'Diamond Eternity Ring',
       description: 'Classic elegance meets modern design',
       price: '$1,299',
-      image: '/images/products/ring-1.jpg'
+      image: require('../assets/images/image1.jpg')
     },
     {
       id: 2,
       name: 'Pearl Drop Earrings',
       description: 'Timeless beauty for any occasion',
       price: '$899',
-      image: '/images/products/earrings-1.jpg'
+      image: require('../assets/images/image4.jpg')
     },
     {
       id: 3,
       name: 'Gold Chain Necklace',
       description: 'Delicate craftsmanship in 18k gold',
       price: '$1,499',
-      image: '/images/products/necklace-1.jpg'
+      image: require('../assets/images/image5.jpg')
     }
   ];
 

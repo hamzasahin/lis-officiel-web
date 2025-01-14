@@ -8,21 +8,21 @@ const Testimonials = () => {
       name: 'Sarah Mitchell',
       role: 'Fashion Blogger',
       quote: "The quality and craftsmanship of their pieces are unmatched. Every item I've purchased has become an instant favorite.",
-      image: '/images/testimonials/sarah.jpg'
+      image: require('../assets/images/image4.jpg')
     },
     {
       id: 2,
       name: 'Emma Thompson',
       role: 'Interior Designer',
       quote: 'Their jewelry adds the perfect finishing touch to any outfit. The attention to detail is remarkable.',
-      image: '/images/testimonials/emma.jpg'
+      image: require('../assets/images/image5.jpg')
     },
     {
       id: 3,
       name: 'Julia Chen',
       role: 'Art Director',
       quote: 'I love how each piece tells a story. The designs are both timeless and contemporary.',
-      image: '/images/testimonials/julia.jpg'
+      image: require('../assets/images/model1.jpg')
     }
   ];
 

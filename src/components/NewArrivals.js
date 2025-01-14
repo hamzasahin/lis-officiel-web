@@ -8,19 +8,19 @@ const NewArrivals = () => {
       id: 1,
       name: 'Sapphire Dreams Ring',
       price: '$2,499',
-      image: '/images/products/sapphire-ring.jpg'
+      image: require('../assets/images/image1.jpg')
     },
     {
       id: 2,
       name: 'Diamond Tennis Bracelet',
       price: '$3,999',
-      image: '/images/products/tennis-bracelet.jpg'
+      image: require('../assets/images/image2.jpg')
     },
     {
       id: 3,
       name: 'Pearl Cluster Earrings',
       price: '$1,299',
-      image: '/images/products/pearl-earrings.jpg'
+      image: require('../assets/images/image3.jpg')
     }
   ];
 

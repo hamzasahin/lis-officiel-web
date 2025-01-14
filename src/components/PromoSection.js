@@ -1,7 +1,8 @@
 import React from 'react';
 import './PromoSection.css';
+import promoImage from '../assets/images/model2.jpg';
 
-const PromoSection = ({ title, subtitle, description, image }) => {
+const PromoSection = ({ title, subtitle, description }) => {
   return (
     <section className="promo-section">
       <div className="promo-content">
@@ -11,7 +12,7 @@ const PromoSection = ({ title, subtitle, description, image }) => {
         <button className="promo-cta">Explore Collection</button>
       </div>
       <div className="promo-image">
-        <img src={image} alt={title} />
+        <img src={promoImage} alt="Timeless Elegance" />
       </div>
     </section>
   );

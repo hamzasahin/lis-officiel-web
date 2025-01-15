@@ -165,57 +165,25 @@ const CartPage = () => {
     }
   }, [user, fetchCartItems]);
 
-  const handleQuantityChange = useCallback(async (item, newQuantity) => {
+  const handleQuantityChange = async (itemId, newQuantity) => {
     try {
-      // Ensure newQuantity is a valid number
-      const parsedQuantity = parseInt(newQuantity, 10);
-      if (isNaN(parsedQuantity)) {
-        setError('Please enter a valid quantity');
-        return;
-      }
-
-      // Validate quantity limits
-      const quantity = Math.max(1, Math.min(10, parsedQuantity));
-      
-      if (quantity === item.quantity) {
-        return; // No change needed
-      }
-
-      console.log('Updating quantity for item:', item.id, 'to:', quantity);
-
-      // Update the item
-      const { data: updateData, error: updateError } = await supabase
+      const { error } = await supabase
         .from('cart')
         .update({ 
-          quantity,
+          quantity: newQuantity,
           updated_at: new Date().toISOString()
         })
-        .eq('id', item.id)
-        .eq('user_id', user.id) // Ensure we're only updating user's own items
-        .is('deleted_at', null)
-        .select();
+        .eq('id', itemId);
 
-      if (updateError) {
-        console.error('Update error:', updateError);
-        throw updateError;
-      }
-
-      // Update local state
-      setCartItems(prevItems =>
-        prevItems.map(cartItem =>
-          cartItem.id === item.id
-            ? { ...cartItem, quantity }
-            : cartItem
-        )
-      );
-
-      // Clear any existing errors
-      setError('');
+      if (error) throw error;
+      
+      // Refresh cart items
+      fetchCartItems();
     } catch (error) {
       console.error('Error updating quantity:', error);
       setError('Failed to update quantity');
     }
-  }, [user]);
+  };
 
   const handleRemoveItem = useCallback(async (item) => {
     try {

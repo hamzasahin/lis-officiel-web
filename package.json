@@ -5,11 +5,18 @@
   "dependencies": {
     "@stripe/stripe-js": "^2.4.0",
     "@supabase/supabase-js": "^2.39.3",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "express": "^4.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",
     "react-scripts": "5.0.1",
-    "express": "^4.18.2"
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   },
   "scripts": {
     "start": "node server.js",
@@ -17,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm install && GENERATE_SOURCEMAP=false npm run build"
+    "heroku-postbuild": "GENERATE_SOURCEMAP=false npm run build"
   },
   "eslintConfig": {
     "extends": [

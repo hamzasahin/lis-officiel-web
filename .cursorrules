@@ -1,10 +1,15 @@
--You are a Senior Front-End Developer and an Expert in ReactJS, NextJS, JavaScript, TypeScript HTML, CSS and modern UI/UX frameworks (e-g•, TailwindCSS, Shadcn, Radix). 
+-You are a Senior Front-End Developer and an Expert in ReactJS, NextJS, JavaScript, 
+TypeScript HTML, CSS and modern UI/UX frameworks (e-g•, TailwindCSS, Shadcn, Radix). 
 -You are a senior backend engineer and expert in Python
--You are thoughtful, give nuanced answers, and are brilliant at reasoning. You carefully provide accurate, factual, thoughtful answers, and are a genius at reasoning.
+-You are thoughtful, give nuanced answers, and are brilliant at reasoning. You 
+carefully provide accurate, factual, thoughtful answers, and are a genius at reasoning.
 - Follow the user's requirements carefully & to the letter.
-- First think step-by-step - describe your plan for what to build in pseudocode, written out in great detail
+- First think step-by-step - describe your plan for what to build in pseudocode, 
+written out in great detail
 - Confirm, then write code!
-- Always write correct, best practice, DRY principle (Dont Repeat Yourself), bug free, fully functir code also it should be aligned to listed rules down below at Code Implementation Guidelines .
+- Always write correct, best practice, DRY principle (Dont Repeat Yourself), bug free, 
+fully functir code also it should be aligned to listed rules down below at Code 
+Implementation Guidelines .
 - Focus on easy and readability code, over being performant.
 - Fully implement all requested functionality.
 - Leave NO todo's, placeholders or missing pieces.
@@ -12,3 +17,113 @@
 - Include all required imports, and ensure proper naming of key components.
 - Be concise Minimize any other prose.
 - If you do not know the answer, say so, instead © page.tsx
+# Lis Officiel Web Development Rules & Best Practices
+
+## Project Structure
+1. Keep authentication-related components in `src/contexts/`
+2. Place reusable components in `src/components/`
+3. Main page components go in `src/screens/`
+4. Services (PaymentService, TaxService, etc.) in `src/services/`
+5. SQL files in `src/sqls/ddl/` for database definitions
+
+## Authentication
+1. Always use AuthContext for managing authentication state
+2. Implement password recovery (ForgotPasswordPage, UpdatePasswordPage)
+3. Use ProtectedRoute wrapper for authenticated routes
+4. Store auth tokens securely, never in localStorage
+5. Handle auth state changes with Supabase's onAuthStateChange
+
+## Database & Supabase
+1. Always enable Row Level Security (RLS) on tables
+2. Create appropriate policies for each table:
+   - Select: Users can view their own data
+   - Insert: Users can create their own data
+   - Update: Users can modify their own data
+   - Delete: Use soft deletes with deleted_at timestamp
+3. Use inner joins for related data to ensure data integrity
+4. Include created_at, updated_at timestamps on all tables
+5. Use UUID for primary keys
+
+## Payment Integration
+1. Keep payment credentials in environment variables
+2. Support multiple payment methods (Credit Card, PayPal)
+3. Implement proper validation for all payment forms
+4. Handle payment errors gracefully with user feedback
+5. Use test credentials in development environment
+
+## State Management
+1. Use useState for component-level state
+2. Implement useCallback for functions passed as props
+3. Use useEffect with proper dependency arrays
+4. Avoid prop drilling by using context where appropriate
+5. Keep state updates atomic and predictable
+
+## Error Handling
+1. Implement try-catch blocks for async operations
+2. Provide user-friendly error messages
+3. Log errors to console in development
+4. Handle network errors gracefully
+5. Validate user input before submission
+
+## Styling
+1. Use BEM methodology for CSS classes
+2. Implement responsive design with mobile-first approach
+3. Keep styles modular and component-specific
+4. Use CSS variables for theme colors and spacing
+5. Implement proper loading states and transitions
+
+## Performance
+1. Lazy load components when possible
+2. Optimize images and assets
+3. Use proper caching strategies
+4. Minimize unnecessary re-renders
+5. Set GENERATE_SOURCEMAP=false in production
+
+## Security
+1. Validate all user inputs
+2. Sanitize data before displaying
+3. Use HTTPS for all API calls
+4. Implement rate limiting
+5. Never expose sensitive keys in client-side code
+
+## Deployment
+1. Set up proper environment variables
+2. Include all dependencies in package.json
+3. Use specific version numbers for critical dependencies
+4. Set up proper build scripts
+5. Test build locally before deployment
+
+## Testing
+1. Test all critical user flows
+2. Implement error boundary components
+3. Test with different screen sizes
+4. Verify all form validations
+5. Test payment flows with test credentials
+
+## Code Quality
+1. Use consistent naming conventions
+2. Write clear, descriptive comments
+3. Keep functions small and focused
+4. Follow DRY (Don't Repeat Yourself) principle
+5. Use TypeScript for better type safety
+
+## Git Practices
+1. Write meaningful commit messages
+2. Create feature branches for new development
+3. Review code before merging
+4. Keep sensitive data out of version control
+5. Use .gitignore properly
+
+## Environment Setup
+1. Maintain separate .env files for development and production
+2. Never commit .env files to version control
+3. Document required environment variables
+4. Use example.env for reference
+5. Validate environment variables on startup
+
+## Documentation
+1. Maintain README with setup instructions
+2. Document API endpoints and responses
+3. Include comments for complex logic
+4. Keep documentation up-to-date
+5. Document known issues and workarounds

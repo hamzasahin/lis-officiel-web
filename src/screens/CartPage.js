@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { supabase } from '../lib/supabase';
+import { supabase } from '../lib';
 import CartSummary from '../components/CartSummary';
 import CartItem from '../components/CartItem';
 import './CartPage.css';
